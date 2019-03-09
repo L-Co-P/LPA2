@@ -1,6 +1,13 @@
 language: ruby
 rvm:
- - 2.3.3
+- 2.3.3
 script:
- - bundle exec rake db:create
- - bundle exec rake db:migrate
+- bundle exec rake db:migrate
+deploy:
+  provider: heroku
+  api_key:
+    secure: eWUS212Roj0zR5laVYXOFaGwtyK22JE71fR6Sbt0iLMjJa1oJ+7CTLfH02PR6yhqf0Ifvlk2mfMHhfVuln6vC6epFSDDxyMhgalARXA7SeBdY+7sRlgeNXR4IxdI7CMW3/kdTgwKANEQn6PenyVJklKa+194cJW1sKPHMn/BGIfjU3SWQKWU0cJgvv1T/NfTzgb4QK/tXvnwPs+vSPvUDfIsOrQ+4g3auRUv/TTjULfnUGcYt/R8VAGqCvGdl/4jtHfaf6lxT5+2IPqbgm/LgpDjyK1T9whw2bIxvDjUxo1SK7tAOTWJsiVImiGwSWGyHAVIHwiizlCHDwzJF2Lx5OaV4zH+8VNP26Mu+eLaILK0uKz2E/Fy1StljWrnfY12h4GG9n0OLt+N5AS1c3SCCjmMAV+p7zNHicTdiMyvIyMB1p8MhBSiAwgVGFQl3ml0z6brCQAwI0CFgCd/ykRgJEuIF34kVoxw9a2XzSAmsA7mSUWxAsSYNDu/SS7k3reoASU8aw71F1WOnE5OZyHO4nDhmZLa8vm7I8v0MO3Nt0awlTaZwYOgzKNSmwf4g/XrH4M5dgXcos9SgZekx2gx5k4kogDUnvgg9jXxZkX63AV6ZmqRdPf3f3cdMj/A455M2/5sFJHEfhqamgurO560mCmT98UURbCSjI2b6PFXwqY=
+  app: peureyl-lpa2
+  on:
+    repo: L-Co-P/LPA2
+  run: "rails db:migrate"
